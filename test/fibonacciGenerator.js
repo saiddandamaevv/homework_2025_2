@@ -32,8 +32,31 @@ QUnit.module("Тестируем функцию fibonacciGenerator", function() 
     });
 
     QUnit.test("Работает правильно при передаче неверного типа данных", function(assert) {
-        const fibGen = fibonacciGenerator("korobka");
+        assert.throws(
+            () => {
+                const fibGen = fibonacciGenerator("korobka");
+                [...fibGen];
+            },
+            Error,
+            "Исключение при попытке ввести строку."
+        );
 
-        assert.deepEqual([...fibGen], [], "Генерация неверного типа данных должна вернуть пустой массив.");
+        assert.throws(
+            () => {
+                const fibGen = fibonacciGenerator(1.2);
+                [...fibGen];
+            },
+            Error,
+            "Исключение при попытке ввести дробь."
+        );
+
+        assert.throws(
+            () => {
+                const fibGen = fibonacciGenerator();
+                [...fibGen];
+            },
+            Error,
+            "Исключение при попытке ввести пустую строку"
+        );
     });
 });

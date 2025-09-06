@@ -1,7 +1,8 @@
 'use strict'
 
 /**
- * Функция принимает число n и генерирует первые n чисел ряда Фибоначчи
+ * Генератор ряда Фибоначчи. Принимает число n и возвращает ряд Фибоначчи до n-ого ээлемента.
+ * @generator
  * @param {number} number - число
  * 
  * @example
@@ -12,6 +13,7 @@
  */
 
 function* fibonacciGenerator(number){
+    if (typeof(number) != "number" || !Number.isInteger(number)) throw new Error("Необходимо ввести целое число.");
     if (number < 1 || typeof(number) != "number") return [];
     
     let a = 0;
