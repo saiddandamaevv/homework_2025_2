@@ -11,7 +11,6 @@
  * 
  * @yields {number} - следующее число последовательности Фибоначчи
  */
-
 function* fibonacciGenerator(number){
     if (typeof(number) !== "number" || !Number.isInteger(number)){
         throw new Error("Необходимо ввести целое число.");
