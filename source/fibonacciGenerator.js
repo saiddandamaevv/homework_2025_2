@@ -13,8 +13,13 @@
  */
 
 function* fibonacciGenerator(number){
-    if (typeof(number) != "number" || !Number.isInteger(number)) throw new Error("Необходимо ввести целое число.");
-    if (number < 1 || typeof(number) != "number") return [];
+    if (typeof(number) !== "number" || !Number.isInteger(number)){
+        throw new Error("Необходимо ввести целое число.");
+    } 
+
+    if (number < 1) {
+        return [];
+    }
     
     let a = 0;
     let b = 1;
@@ -25,4 +30,5 @@ function* fibonacciGenerator(number){
         a = b;
         b = tmp + a;
     }
+
 }
